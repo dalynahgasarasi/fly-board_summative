@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <header>
+        <div class="logo">
+            <span class="logo-icon">&#9992;</span>
+            <h1>Fly<span>Board</span></h1>
+        </div>
+        <p class="tagline">Real-Time Flight Explorer</p>
+    </header>
+
+    <div id="searchArea">
+        <div class="search-row">
+            <input type="text" id="searchInput" placeholder="Airport, city, or Airline">
+            <div class="direction-toggle">
+                <button class="toggle-btn active" onclick="setDirection('Departure', this)">Departures</button>
+                <button class="toggle-btn" onclick="setDirection('Arrival', this)">Arrivals</button>
+            </div>
+            <button id="searchButton">Search</button>
+        </div>
+        <div id="quickSearchArea">
+        <button onclick="quickSearch('KGL')">KGL - Kigali</button>
+        <button  onclick="quickSearch('NBO')">NBO - Nairobi</button>
+        <button onclick="quickSearch('LAX')">LAX - Los Angeles</button>
+        <button onclick="quickSearch('DXB')">DXB - Dubai</button>
+        <button onclick="quickSearch('LHR')">LHR - London</button>
+        <button onclick="quickSearch('NBO')">NBO - Nairobi</button>
+        </div>
+    </div>
+
+
+    <div id="filterArea" style="display: none;">
+        <button class="filter-chip active" onclick="filterFlights('all' , this)">All Flights</button>
+        <button class="filter-chip" onclick="filterFlights('expected' , this)">Expected</button>
+        <button class="filter-chip" onclick="filterFlights('unknown' , this)">Unknown</button>
+        <select id="sortSelect" onchange="sortFlights()">
+            <option value="time">Sort by Time</option>
+            <option value="airline">Sort by Airline</option>
+        </select>
+    </div>
+    <div id="resultsArea">
+        <div id="welcomeMessage">
+            <h2> Where are you flying from?</h2>
+            <p>Enter an airport code (e.g., JFK, LAX) to see real-time flight information. Try KGL for Kigali, LAX for Los Angeles, or NBO for Nairobi.</p>
+        </div>
+    </div>
+    <footer>
+        FlyBoard &mdash; 2026 &middot; Powered by <a href="https://www.aerodatabox.com/" target="_blank">AeroDataBox API</a>
+    </footer>
+    </div>
+    <script src="cities.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
