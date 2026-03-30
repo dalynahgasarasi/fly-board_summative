@@ -1,0 +1,369 @@
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+}
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #222017;
+    color: #ede8d8;
+    min-height: 100vh;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+header {
+    text-align: center;
+    padding: 40px 0 24px;
+
+}
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.logo-icon {
+    font-size: 20px;
+    color: #c4a44e;
+}
+.logo h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 26px;
+    color: #ede8d8
+}
+.logo h1 span {
+    color: #c4a44e;
+}
+.tagline {
+    color: #8a7f65;
+    font-size: 14px;
+    margin-top: 4px;
+}
+#searchArea {
+    background: #26231a;
+    border: 1px solid #3a3424;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+}
+.search-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+#searchInput {
+    flex: 1;
+    padding: 10px 14px;
+    background: #1c1a14;
+    border-radius: 8px;
+    border: 1px solid #3a3424;
+    color: #ede8d8;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+}
+#searchInput::placeholder {
+    color: #8a7f65;
+}
+#searchButton {
+    padding: 10px 24px;
+    background: #2d3a0d;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+#searchButton:hover {
+    background: #5a6b34;
+}
+#directionSelect {
+    padding: 10px 16px;
+    background: #1c1a14;
+    border: 1px solid #3a3424;
+    border-radius: 20px;
+    color: #ede8d8;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    cursor: pointer;
+}   
+#resultsArea {
+    margin: 20px;
+    padding: 20px;
+    background: #26231a;
+    border: 1px solid #3a3424;
+    border-radius: 12px;
+}
+#quickSearchArea button{
+    background: transparent;
+    border: 1px solid #3a3424;
+    border-radius: 20px;
+    padding: 6px 14px;
+    color: #8a7f65;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+}
+#quickSearchArea button:hover {
+    background: #3a3424;
+    color: #c4a44e;
+    border-color: #c4a44e;
+}
+#filterArea {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filter-chip {
+    background: transparent;
+    border: 1px solid #3a3424;
+    border-radius: 20px;
+    padding: 6px 14px;
+    color: #8a7f65;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;   
+}
+.filter-chip.active {
+    background: #c4a44e;
+    color: #1c1a14;
+    border-color: #c4a44e;
+    font-weight: 500;
+}
+#sortSelect {
+    margin-left: auto;
+    padding: 6px 12px;
+    background: #26231a;
+    color: #8a7f65;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid #3a3424;
+    border-radius: 8px;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+#welcomeMessage {
+    text-align: center;
+    padding: 60px 20px;
+}
+.welcome-icon {
+    font-size: 32px;
+    color: #c4a44e;
+    margin-bottom: 12px;
+}
+#welcomeMessage h2 {
+    color: #ede8d8;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+#welcomeMessage p {
+    color: #8a7f65;
+    font-size: 14px;
+    max-width: 360px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+.flight-card {
+    background: #26231a;
+    border: 1px solid #3a3424;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+}
+.flight-card:hover {
+    border-color: #c4a44e;
+}
+.flight-card h3 {
+    color: #ede8d8;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom:10px;
+}
+.flight-card p {
+    color: #b5a88a;
+    font-size: 13px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}    
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #8a7f65;
+    font-size: 12px;
+    border-top: 1px solid #3a3424;
+    margin-top: 40px;
+}
+footer a {
+    color: #c4a44e;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.flight-id {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.airline-name {
+    font-size: 14px;
+    color: #ede8d8;
+    font-weight: 500;
+}
+.flight-number {
+    font-size: 12px;
+    background: #3a3424;
+    color: #c4a44e;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+
+}
+
+.flight-status {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.status-expected {
+    background: #2a3424;
+    color: #6b7c3f;
+}
+.status-unknown {
+    background: #3a3424;
+    color: #8a7f65;
+}
+
+.card-route {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.airport-block {
+    min-width: 60px;
+}
+
+.airport-code {
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ede8d8;
+}
+
+.airport-name {
+    font-size: 11px;
+    color: #8a7f65;
+}
+
+.airport-time {
+    font-size: 13px;
+    color: #b5a88a;
+}
+.route-line {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    color: #c4a44e;
+    position: relative;
+}
+
+.card-details {
+    font-size: 12px;
+    color: #8a7f65;
+    display: flex;
+    padding-top: 10px;
+    border-top: 1px solid #3a3424;
+    gap: 20px;
+}
+
+.direction-toggle {
+    display: flex;
+    background: #1c1a14;
+    border: 1px solid #3a3424;
+    border-radius: 20px;
+    padding: 3px;
+}
+
+.toggle-btn {
+    padding: 6px 16px;
+    background: transparent;
+    border: none;
+    color: #8a7f65;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 18px;
+}
+.toggle-btn.active {
+    background: #c4a44e;
+    color: #1c1a14;
+    font-weight: 500;
+}
+
+#resultArea h2 {
+    color: #ede8d8;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+    .search-row {
+        flex-direction: column;
+    }
+    .card-route {
+        gap: 8px;
+    }
+    .airport-code {
+        font-size: 18px;
+    }
+}
+#filterArea {
+    padding: 0 20px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 8px 20px;
+    background: #3a3424;
+    border: 1px solid #3a3424;
+    border-radius: 8px;
+    color: #ede8d8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background: #c4a44e;
+    color: #1c1a14;
+}
+
+.page-info {
+    color: #8a7f65;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
