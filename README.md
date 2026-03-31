@@ -43,5 +43,7 @@ Bonus:
 - Input sanitization for XSS protection and sql injections
 
 Load Balancer URL : http://13.219.84.224
+
 Demo Video: https://youtu.be/3_BYmP51ICk
+
 Website link: https://dalynahgasarasi.github.io/fly-board_summative/
