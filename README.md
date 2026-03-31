@@ -18,7 +18,7 @@ Documentation: https://doc.aerodatabox.com/
 FlyBoard was built using:
 - HTML, JavaScript and CSS
 - Server: Nginx = HAproxy
-- API: AeroDataBox by RapidAPI (https://rapidapi.com/aedbx-aedbx/api/aerodatabox)
+- API: AeroDataBox by RapidAPI
 
 Deployment:
 On web-01 and web-02:
