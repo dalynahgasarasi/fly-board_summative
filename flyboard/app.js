@@ -1,4 +1,5 @@
 let allFlights = [];
+let flightsCache = {};
  let currentPage = 1;
  const flightsPerPage = 10;
 
@@ -8,9 +9,13 @@ const API_HOST = "aerodatabox.p.rapidapi.com";
 const searchBtn = document.getElementById("searchButton");
 const airportInput = document.getElementById("searchInput");
 const resultsContainer = document.getElementById("resultsArea");
-
+function sanitize(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
 searchBtn.addEventListener("click", function() {
-    const searchTerm = airportInput.value.trim().toUpperCase();
+    const searchTerm = sanitize(airportInput.value.trim().toUpperCase());
     if (!searchTerm) {
         alert("Please enter an airport code., airline, or flight number.");
         return;
@@ -49,6 +54,15 @@ async function fetchFlights(airportCode) {
     const toTime = later.toISOString().slice(0, 16);
     const activeToggle = document.querySelector(".toggle-btn.active");
     const direction = activeToggle ? activeToggle.textContent === "Departures" ? "Departure" : "Arrival" : "Departure";
+
+    const cacheKey = airportCode + "-" + direction;
+    if (flightsCache[cacheKey]) {
+        console.log("Using cached data for " + cacheKey);
+        allFlights = flightsCache[cacheKey];
+        document.getElementById("filterArea").style.display = "flex";
+        displayflights(allFlights, airportCode);
+        return;
+    }
     const url = "https://aerodatabox.p.rapidapi.com/flights/airports/iata/" + airportCode + "/" + fromTime + "/" + toTime + "?direction=" + direction;
     try {
         const response = await fetch(url, {
@@ -66,6 +80,7 @@ async function fetchFlights(airportCode) {
             return;
         }
         allFlights = flights;
+        flightsCache[cacheKey] = flights;
         document.getElementById("filterArea").style.display = "flex";
         displayflights(allFlights, airportCode);
     } catch (error) {
@@ -96,14 +111,14 @@ function displayflights(flights, airportCode) {
     html += "<p class='page-info'>Page " + currentPage + " of " + totalPages + "</p>";
 
     pageFlights.forEach(function(flight) {
-    const airline = flight.airline ? flight.airline.name : "Unknown";
-    const flight_no = flight.number || "N/A";
-    const destination = flight.movement && flight.movement.airport ? flight.movement.airport.name : "Unknown";
-    const destination_code = flight.movement && flight.movement.airport ? flight.movement.airport.iata : "---";
+    const airline = sanitize(flight.airline ? flight.airline.name : "Unknown");
+    const flight_no = sanitize(flight.number || "N/A");
+    const destination = sanitize(flight.movement && flight.movement.airport ? flight.movement.airport.name : "Unknown");
+    const destination_code = sanitize(flight.movement && flight.movement.airport ? flight.movement.airport.iata : "---");
     const time = flight.movement && flight.movement.scheduledTime ? flight.movement.scheduledTime.local : "N/A";
-    const status = flight.status || "Unknown";
+    const status = sanitize(flight.status || "Unknown");
     const date = flight.movement && flight.movement.scheduledTime ? flight.movement.scheduledTime.local.slice(0, 10) : "N/A";
-    const aircraft = flight.aircraft ? flight.aircraft.model : "Unknown";
+    const aircraft = sanitize(flight.aircraft ? flight.aircraft.model : "Unknown");
 
 
     html += "<div class= 'flight-card'>";
